@@ -1,0 +1,2 @@
+npx create-next-app@latest my-ecommerce-store --typescript --tailwind
+cd my-ecommerce-store

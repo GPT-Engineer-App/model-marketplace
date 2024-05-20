@@ -1,0 +1,27 @@
+import { useRouter } from "next/router";
+
+const products = [
+  { id: 1, name: "3D Model 1", price: 10, description: "Description for 3D Model 1" },
+  { id: 2, name: "3D Model 2", price: 15, description: "Description for 3D Model 2" },
+  { id: 3, name: "3D Model 3", price: 20, description: "Description for 3D Model 3" },
+];
+
+const ProductDetailPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const product = products.find((p) => p.id === Number(id));
+
+  if (!product) {
+    return <p>Product not found</p>;
+  }
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-4">{product.name}</h2>
+      <p className="mb-4">${product.price}</p>
+      <p>{product.description}</p>
+    </div>
+  );
+};
+
+export default ProductDetailPage;
